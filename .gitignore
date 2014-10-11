@@ -1,0 +1,22 @@
+# Yeoman ignores
+node_modules/
+bower_components/
+*.log
+build/
+dist/
+
+# NODE
+# folders
+logs
+pids
+results
+build
+node_modules
+lib-cov
+#files
+*.log
+*.pid
+*.seed
+.grunt
+# Users Environment Variables
+.lock-wscript
