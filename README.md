@@ -1,12 +1,12 @@
 Introduction to Node.JS, Express, Jade, and MongoDB
 =======================
 
-http://cwbuecheler.com/web/tutorials/2013/node-express-mongo/
+http://cwbuecheler.com/web/tutorials/2014/restful-web-app-node-express-mongodb/
 
 What Is This?
 -------------
 
-This is a sample (quick, down and dirty) of a NodeJS, Express, Jade and MongoDB project.  Very
+This is a sample (quick, down and dirty) of a NodeJS, Express, Jade and MongoDB project.  This is a one up from previous tutorial in that we are using jquery for ajax transfer of data between front end and mongodb. Very
 simple.  This application (tutorial) builds on what I learned in his first tutorial and brings in jQuery
 framework and makes this a simple REST app.
 
