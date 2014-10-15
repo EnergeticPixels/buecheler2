@@ -13,6 +13,14 @@ $(document).ready(function() {
     // add user button click handler
     $('#btnAddUser').on('click', addUser);
 
+    // Detele user link click
+    $('#userList table tbody').on('click', 'td a.linkdeleteuser', deleteUser);
+
+    /* note the syntax of the "on" method. in order to capture dynamically generated links, 
+     * you need to reference a static element on the page first. This is why our selector is
+     * userList table tbody which remains constant.
+    */
+
 });
 
 // Functions =============================================================
@@ -124,4 +132,45 @@ function addUser(event) {
         alert('Please fill in all fields');
         return false;
     }
+};
+
+// Delete User
+// it does a quick confirm from the user.  If the user sure they want to delete, it just hits our delete 
+// service (users.js) and passes it the ID, then it updates the table to show that the user is now gone.
+function deleteUser(event) {
+
+    event.preventDefault();
+
+    // Pop up a confirmation dialog
+    var confirmation = confirm('Are you sure you want to delete this user?');
+
+    // Check and make sure the user confirmed
+    if (confirmation === true) {
+
+        // If they did, do our delete
+        $.ajax({
+            type: 'DELETE',
+            url: '/users/deleteuser/' + $(this).attr('rel')
+        }).done(function( response ) {
+
+            // Check for a successful (blank) response
+            if (response.msg === '') {
+            }
+            else {
+                alert('Error: ' + response.msg);
+            }
+
+            // Update the table
+            populateTable();
+
+        });
+
+    }
+    else {
+
+        // If they said no to the confirm, do nothing
+        return false;
+
+    }
+
 };
